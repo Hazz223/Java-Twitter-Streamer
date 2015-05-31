@@ -2,6 +2,7 @@ package twitterStreamer;
 
 import com.google.common.collect.Lists;
 import com.mongodb.DBCollection;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
 import com.twitter.hbc.core.Constants;
@@ -14,6 +15,7 @@ import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 import tProps.TwitterProperties;
 import tProps.TwitterPropertiesLoader;
+import tProps.TwitterSearchTerms;
 
 import java.util.List;
 import java.util.Scanner;
@@ -32,7 +34,14 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         BlockingQueue<String> msgQueue = new LinkedBlockingQueue<String>(100000);
         BlockingQueue<Event> eventQueue = new LinkedBlockingQueue<Event>(1000);
-        List<String> terms = Lists.newArrayList("#FirstDateQuestions", "#MothersDay", "#Nintendo", "#Twitter", "#Election");
+
+        TwitterSearchTerms searchTerms = new TwitterSearchTerms();
+        List<String> terms = searchTerms.getSearchTerms();
+
+        if(terms.size() == 0){
+            System.out.println("No Search terms found. Please add some.");
+            throw new RuntimeException("Failed");
+        }
 
         try {
             TwitterProperties tProperties = new TwitterPropertiesLoader().getProperties();

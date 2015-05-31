@@ -34,11 +34,10 @@ public class TwitterStreamThread implements Runnable {
     private void runTwitterFeed(DBCollection coll) {
 
         Long numberOfTweetsAdded = 0L;
-        Date date = new Date();
 
         while (keepRunning) {
             try {
-
+                Date date = new Date();
                 String time = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy").format(date);
 
                 String message = msgQueue.take();
@@ -59,7 +58,6 @@ public class TwitterStreamThread implements Runnable {
                 coll.insert(tweet);
 
                 numberOfTweetsAdded++;
-
                 if (numberOfTweetsAdded % 10 == 0) {
                     System.out.println("Number of tweets added since the start of program: " + numberOfTweetsAdded);
                     System.out.println("Logged at: " + time);
