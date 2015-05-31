@@ -13,7 +13,7 @@ public class TwitterPropertiesLoader {
     public TwitterProperties getProperties() throws IOException {
 
         Properties prop = new Properties();
-        String propFileName = "twitterStreamer/resources/config.properties";
+        String propFileName = "config.properties";
 
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 
