@@ -28,6 +28,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Main {
 
     public static void main(String args[]) {
+
         Scanner scan = new Scanner(System.in);
         BlockingQueue<String> msgQueue = new LinkedBlockingQueue<String>(100000);
         BlockingQueue<Event> eventQueue = new LinkedBlockingQueue<Event>(1000);
