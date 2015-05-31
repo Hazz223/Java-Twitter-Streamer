@@ -1,3 +1,5 @@
+package twitterStreamer;
+
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;

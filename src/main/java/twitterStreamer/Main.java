@@ -1,6 +1,7 @@
-import com.mongodb.DBCollection;
-import tProps.TwitterProperties;
+package twitterStreamer;
+
 import com.google.common.collect.Lists;
+import com.mongodb.DBCollection;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
 import com.twitter.hbc.core.Constants;
@@ -11,6 +12,7 @@ import com.twitter.hbc.core.event.Event;
 import com.twitter.hbc.core.processor.StringDelimitedProcessor;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
+import tProps.TwitterProperties;
 import tProps.TwitterPropertiesLoader;
 
 import java.util.List;
@@ -21,6 +23,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * Created by Harry on 08/05/2015.
  */
+
+
 public class Main {
 
     public static void main(String args[]) {

@@ -1,4 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
-src/main/resources/config.properties
+src/test/java/main/resources/config.properties
 .idea/workspace.xml
 target/classes/config.properties
